@@ -1,0 +1,294 @@
+<!-- ================= NAVBAR ================= -->
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+<nav class="navbar">
+  <!-- LOGO -->
+
+  <div class="logo">
+    <h2>YC<span>.</span></h2>
+  </div>
+
+  <!-- NAV LINKS -->
+
+  <ul class="nav-links">
+    <li><a href="/yogesh">Home</a></li>
+
+    <li><a href="/yogesh/about">About</a></li>
+
+    <li><a href="/yogesh/skills">Skills</a></li>
+
+    <li><a href="/yogesh/projects">Projects</a></li>
+
+    <li><a href="/yogesh/contact">Contact</a></li>
+  </ul>
+
+  <!-- BUTTON -->
+
+  <div class="nav-btn">
+    <a href="/resume" download>
+      <button>
+        <i class="fa-solid fa-download"></i>
+        Download CV
+      </button>
+    </a>
+  </div>
+
+  <!-- MENU ICON -->
+
+  <div class="menu-icon">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</nav>
+
+<!-- ================= CSS ================= -->
+
+<style>
+  /* ================= RESET ================= */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    background: #ececec;
+    overflow-x: hidden;
+  }
+
+  /* ================= NAVBAR ================= */
+
+  .navbar {
+    width: 95%;
+    height: 80px;
+
+    margin: 20px auto;
+    padding: 0 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #050816;
+
+    border-radius: 20px;
+
+    position: sticky;
+    top: 10px;
+
+    z-index: 1000;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  /* ================= LOGO ================= */
+
+  .logo h2 {
+    color: white;
+
+    font-size: 2.3rem;
+    font-weight: 700;
+  }
+
+  .logo span {
+    color: #ff2d2d;
+  }
+
+  /* ================= NAV LINKS ================= */
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 2.5rem;
+
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    position: relative;
+
+    transition: 0.3s ease;
+  }
+
+  /* ACTIVE */
+
+  .nav-links a.active,
+  .nav-links a:hover {
+    color: #ff2d2d;
+  }
+
+  /* UNDERLINE */
+
+  .nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -8px;
+
+    width: 0%;
+    height: 2px;
+
+    background: #ff2d2d;
+
+    transform: translateX(-50%);
+
+    transition: 0.3s ease;
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    width: 100%;
+  }
+
+  /* ================= BUTTON ================= */
+
+  .nav-btn button {
+    padding: 12px 22px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    border: 2px solid #ff2d2d;
+
+    color: white;
+
+    border-radius: 12px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+  }
+
+  .nav-btn button:hover {
+    background: #ff2d2d;
+
+    transform: translateY(-3px);
+  }
+
+  /* ================= MENU ICON ================= */
+
+  .menu-icon {
+    display: none;
+
+    color: white;
+
+    font-size: 1.8rem;
+
+    cursor: pointer;
+  }
+
+  /* ================= MOBILE ================= */
+
+  @media (max-width: 768px) {
+    .navbar {
+      height: 75px;
+
+      padding: 0 25px;
+    }
+
+    /* NAV MENU */
+
+    .nav-links {
+      position: absolute;
+
+      top: 90px;
+      left: -120%;
+
+      width: 100%;
+
+      background: #050816;
+
+      flex-direction: column;
+
+      justify-content: center;
+      align-items: center;
+
+      gap: 2rem;
+
+      padding: 2rem 0;
+
+      border-radius: 20px;
+
+      transition: 0.4s ease;
+
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.active {
+      left: 0;
+    }
+
+    .menu-icon {
+      display: block;
+    }
+
+    .nav-btn {
+      display: none;
+    }
+
+    .logo h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<!-- ================= JS ================= -->
+
+<script>
+  /* MOBILE MENU */
+
+  const menuIcon = document.querySelector(".menu-icon");
+
+  const navLinks = document.querySelector(".nav-links");
+
+  menuIcon.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  /* ACTIVE SECTION */
+
+  const sections = document.querySelectorAll("section");
+
+  const navItems = document.querySelectorAll(".nav-links a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+
+      if (pageYOffset >= sectionTop - 250) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navItems.forEach((link) => {
+      link.classList.remove("active");
+
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
