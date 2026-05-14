@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- ================= META ================= -->
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ================= TITLE ================= -->
-
     <title>Yogesh Portfolio</title>
-
-    <!-- ================= CSS ================= -->
+    <link rel="icon" href="/assets/favicon.io.png" />
 
     <link rel="stylesheet" href="/style.css" />
-
-    <!-- ================= FONT AWESOME ================= -->
 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-
-    <!-- ================= AOS ================= -->
-
+    <link rel="icon" href="/favicon.ico" />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   </head>
 
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
 
+      loader.style.opacity = "0";
+
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 500);
+    });
+  </script>
   <body>
-    <!-- ======================================================
-                        NAVBAR
-====================================================== -->
-
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
     <nav class="navbar">
       <!-- LOGO -->
 
@@ -54,27 +54,12 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
 
-      <!-- DOWNLOAD BUTTON -->
-
-      <div class="nav-btn">
-        <a href="/resume.pdf" download>
-          <button>
-            <i class="fa-solid fa-download"></i>
-            Download CV
-          </button>
-        </a>
-      </div>
-
       <!-- MOBILE MENU -->
 
       <div class="menu-icon">
         <i class="fa-solid fa-bars"></i>
       </div>
     </nav>
-
-    <!-- ======================================================
-                        HERO SECTION
-====================================================== -->
 
     <section id="home" class="main-box">
       <!-- LEFT -->
@@ -98,10 +83,6 @@
           <a href="#projects">
             <button class="see-pro">See Profile</button>
           </a>
-
-          <a href="/resume.pdf">
-            <button class="see-pro resume-btn">See Resume</button>
-          </a>
         </div>
       </div>
 
@@ -113,10 +94,6 @@
         <img class="myImg" src="/assets/yogi.png" alt="my-image" />
       </div>
     </section>
-
-    <!-- ======================================================
-                        ABOUT
-====================================================== -->
 
     <section id="about" class="about">
       <div class="section-title" data-aos="fade-up">
@@ -154,8 +131,6 @@
           </a>
         </div>
 
-        <!-- RIGHT -->
-
         <div class="about-right">
           <div class="about-card" data-aos="fade-up">
             <h2>Web Development</h2>
@@ -177,10 +152,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ======================================================
-                        SKILLS
-====================================================== -->
 
     <section id="skills" class="skills">
       <div class="section-title">
@@ -210,8 +181,6 @@
           <p>Modern UI styling and animations.</p>
         </div>
 
-        <!-- SKILL -->
-
         <div class="skill-box">
           <i class="fa-brands fa-js"></i>
 
@@ -219,8 +188,6 @@
 
           <p>Interactive frontend development.</p>
         </div>
-
-        <!-- SKILL -->
 
         <div class="skill-box">
           <i class="fa-brands fa-node-js"></i>
@@ -230,8 +197,6 @@
           <p>Backend development with Express.</p>
         </div>
 
-        <!-- SKILL -->
-
         <div class="skill-box">
           <i class="fa-solid fa-database"></i>
 
@@ -239,8 +204,6 @@
 
           <p>Database management and schemas.</p>
         </div>
-
-        <!-- SKILL -->
 
         <div class="skill-box">
           <i class="fa-brands fa-react"></i>
@@ -280,9 +243,6 @@
         </div>
       </div>
     </section>
-    <!-- ======================================================
-                        PROJECTS
-====================================================== -->
 
     <section id="projects" class="projects">
       <div class="section-title" data-aos="fade-up">
@@ -293,7 +253,6 @@
 
       <div class="project-container">
         <!-- PROJECT 1 -->
-
         <div class="project-card" data-aos="fade-up">
           <h2>Japanese Tutor App</h2>
 
@@ -309,8 +268,6 @@
           </div>
         </div>
 
-        <!-- PROJECT 2 -->
-
         <div class="project-card" data-aos="fade-up">
           <h2>Weather App</h2>
 
@@ -323,8 +280,6 @@
           </div>
         </div>
 
-        <!-- PROJECT 3 -->
-
         <div class="project-card" data-aos="fade-up">
           <h2>Airbnb Clone</h2>
 
@@ -336,7 +291,6 @@
             <span>Express</span>
           </div>
         </div>
-        <!-- PROJECT 4 -->
 
         <div class="project-card" data-aos="fade-up">
           <h2>Hospital Management</h2>
@@ -350,8 +304,6 @@
           </div>
         </div>
 
-        <!-- PROJECT 4 -->
-
         <div class="project-card" data-aos="fade-up">
           <h2>REST API Implementation</h2>
 
@@ -363,8 +315,6 @@
             <span>MongoDB</span>
           </div>
         </div>
-
-        <!-- PROJECT 5 -->
 
         <div class="project-card" data-aos="fade-up">
           <h2>Calculator App</h2>
@@ -379,10 +329,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ======================================================
-                        CONTACT
-====================================================== -->
 
     <section id="contact" class="contact">
       <div class="section-title" data-aos="fade-up">
@@ -408,29 +354,28 @@
       </div>
     </section>
 
-    <!-- ======================================================
-                        FOOTER
-====================================================== -->
-
     <footer class="footer">
       <h2>Yogesh Chouhan</h2>
 
       <p>Full Stack Developer | MERN Stack Enthusiast</p>
 
       <div class="socials">
-        <a href="#"><i class="fa-brands fa-github"></i></a>
+        <a href="https://github.com/Yogesh-chouhan-hub"
+          ><i class="fa-brands fa-github"></i
+        ></a>
 
-        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <a
+          href="https://www.linkedin.com/in/yogesh-chouhan-54316a294?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
 
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.instagram.com/yogesh.chouhan029/?hl=en"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
       </div>
 
       <p class="copy">© 2026 All Rights Reserved</p>
     </footer>
-
-    <!-- ======================================================
-                        TYPED JS
-====================================================== -->
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
@@ -450,10 +395,6 @@
       });
     </script>
 
-    <!-- ======================================================
-                        MOBILE MENU
-====================================================== -->
-
     <script>
       const menuIcon = document.querySelector(".menu-icon");
 
@@ -463,10 +404,6 @@
         navLinks.classList.toggle("active");
       });
     </script>
-
-    <!-- ======================================================
-                        ACTIVE NAVBAR
-====================================================== -->
 
     <script>
       const sections = document.querySelectorAll("section");
@@ -509,10 +446,6 @@
 
       requestAnimationFrame(raf);
     </script>
-
-    <!-- ======================================================
-                        AOS
-====================================================== -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
